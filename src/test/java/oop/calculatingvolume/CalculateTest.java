@@ -26,14 +26,14 @@ public class CalculateTest extends BaseTest {
     }
 
     @Test
-    public void whenRoundResult_1_2345_thenResultIs_1_235() {
+    public void whenRoundResult_1_2345_thenResultIs_1_235() throws Exception {
         Calculate cut = new Calculate();
         double val = cut.round(1.2345);
         assertEquals(1.235, val, 0);
     }
 
     @Test
-    public void whenRoundResult_3_12995_thenResultIs_3_130() {
+    public void whenRoundResult_3_12995_thenResultIs_3_130() throws Exception {
         Calculate cut = new Calculate();
         double val = cut.round(3.12995);
         assertEquals(3.130, val, 0);
@@ -46,7 +46,7 @@ public class CalculateTest extends BaseTest {
         int testType = cut.get_int_val();
         int a = cut.get_int_val();
 
-        double volume = cut.do_calc().get_volume(a);
+        double volume = Calculate.do_calc().get_volume(a);
 
         assertEquals(1, numberOfTests);
         assertEquals(1, testType);
@@ -64,6 +64,7 @@ public class CalculateTest extends BaseTest {
         int h = cut.get_int_val();
 
         double volume = cut.do_calc().get_volume(l, b, h);
+        cut.output.display(volume);
 
         assertEquals(1, numberOfTests);
         assertEquals(2, testType);
@@ -80,12 +81,27 @@ public class CalculateTest extends BaseTest {
         int testType = cut.get_int_val();
         double r = cut.get_double_val();
 
-        double volume = cut.do_calc().get_volume(r);
+        double volume = Calculate.do_calc().get_volume(r);
 
         assertEquals(1, numberOfTests);
         assertEquals(3, testType);
         assertEquals(2.2345, r, 0);
         assertEquals(23.367, cut.round(volume), 0);
+    }
+
+    @Test
+    public void whenHemisphereOf1_02_thenValueIs2_223() {
+        Calculate cut = new Calculate(getScannerFor("hemisphere_1_02"));
+        int numberOfTests = cut.get_int_val();
+        int testType = cut.get_int_val();
+        double r = cut.get_double_val();
+
+        double volume = Calculate.do_calc().get_volume(r);
+
+        assertEquals(1, numberOfTests);
+        assertEquals(3, testType);
+        assertEquals(1.02, r, 0);
+        assertEquals(2.223, cut.round(volume), 0);
     }
 
     @Test
@@ -96,7 +112,9 @@ public class CalculateTest extends BaseTest {
         double r = cut.get_double_val();
         double h = cut.get_double_val();
 
-        double volume = cut.do_calc().get_volume(r, h);
+        double volume = Calculate.do_calc().get_volume(r, h);
+
+        cut.output.display(volume);
 
         assertEquals(1, numberOfTests);
         assertEquals(4, testType);

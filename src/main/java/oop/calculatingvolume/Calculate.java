@@ -1,14 +1,19 @@
 package oop.calculatingvolume;
 
+import java.io.IOException;
 import java.math.BigDecimal;
 import java.math.RoundingMode;
+import java.text.DecimalFormat;
+import java.text.NumberFormat;
 import java.util.Scanner;
 
-public class Calculate {
+class Calculate {
 
     Scanner scanner;
 
-    public Calculate() {
+    Output output = new Output();
+
+    public Calculate() throws IOException {
         scanner = new Scanner(System.in);
     }
 
@@ -38,11 +43,11 @@ public class Calculate {
         return bigDecimal.doubleValue();
     }
 
-    public VolumeCalculator do_calc() {
+    public static VolumeCalculator do_calc() {
         return new VolumeCalculator();
     }
 
-    public class VolumeCalculator {
+    public static class VolumeCalculator {
 
         public double get_volume(int a) {
             return Math.pow(a, 3);
@@ -59,10 +64,16 @@ public class Calculate {
         }
 
         public double get_volume(double r, double h) {
+            return Math.PI * Math.pow(r, 2) * h;
+        }
+    }
 
-            double area = Math.PI * Math.pow(r, 2);
+    public class Output {
 
-            return area * h;
+        public void display(double volume) {
+            double round = Calculate.this.round(volume);
+            NumberFormat formatter = new DecimalFormat("#0.000");
+            System.out.println(formatter.format(round));
         }
     }
 }
