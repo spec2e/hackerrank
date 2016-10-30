@@ -1,17 +1,15 @@
 package array;
 
 import org.junit.Before;
-import org.junit.Ignore;
 import org.junit.Test;
+import test.BaseTest;
 
 import java.io.InputStream;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 
-import static org.junit.Assert.assertArrayEquals;
-
-public class SolutionTest {
+public class SolutionTest extends BaseTest {
 
     private Solution solution;
 
@@ -400,7 +398,7 @@ public class SolutionTest {
     @Test
     public void testcase3() throws Exception {
 
-        InputStream is = SolutionTest.class.getResourceAsStream("/testcase3.txt");
+        InputStream is = SolutionTest.class.getResourceAsStream("/array/testcase3.txt");
         int[][] game = Solution.buildGameStructure(is);
 
         int[][] foundGame = getGameNumber(762, game);
@@ -408,7 +406,7 @@ public class SolutionTest {
 
         String[] gameResults = solution.execute(game);
 
-        Scanner scanner = new Scanner(SolutionTest.class.getResourceAsStream("/testcase3.res.txt"));
+        Scanner scanner = new Scanner(SolutionTest.class.getResourceAsStream("/array/testcase3.res.txt"));
         List<String> results = new ArrayList<String>();
         while (scanner.hasNext()) {
             results.add(scanner.nextLine());
@@ -422,12 +420,12 @@ public class SolutionTest {
     @Test
     public void testcase4() throws Exception {
 
-        InputStream is = SolutionTest.class.getResourceAsStream("/testcase4.txt");
+        InputStream is = SolutionTest.class.getResourceAsStream("/array/testcase4.txt");
         int[][] game = Solution.buildGameStructure(is);
 
         String[] gameResults = solution.execute(game);
 
-        Scanner scanner = new Scanner(SolutionTest.class.getResourceAsStream("/testcase4.res.txt"));
+        Scanner scanner = new Scanner(SolutionTest.class.getResourceAsStream("/array/testcase4.res.txt"));
         List<String> results = new ArrayList<String>();
         while (scanner.hasNext()) {
             results.add(scanner.nextLine());
@@ -441,11 +439,11 @@ public class SolutionTest {
     @Test
     public void testcase7() throws Exception {
 
-        InputStream is = SolutionTest.class.getResourceAsStream("/testcase7.txt");
+        InputStream is = SolutionTest.class.getResourceAsStream("/array/testcase7.txt");
         int[][] game = Solution.buildGameStructure(is);
         String[] calculatedResults = solution.execute(game);
 
-        Scanner scanner = new Scanner(SolutionTest.class.getResourceAsStream("/testcase7.res.txt"));
+        Scanner scanner = new Scanner(SolutionTest.class.getResourceAsStream("/array/testcase7.res.txt"));
         List<String> results = new ArrayList<String>();
         while (scanner.hasNext()) {
             results.add(scanner.nextLine());
@@ -457,11 +455,11 @@ public class SolutionTest {
     @Test
     public void testcase8() throws Exception {
 
-        InputStream is = SolutionTest.class.getResourceAsStream("/testcase8.txt");
+        InputStream is = SolutionTest.class.getResourceAsStream("/array/testcase8.txt");
         int[][] game = Solution.buildGameStructure(is);
         String[] calculatedResults = solution.execute(game);
 
-        Scanner scanner = new Scanner(SolutionTest.class.getResourceAsStream("/testcase8.res.txt"));
+        Scanner scanner = new Scanner(SolutionTest.class.getResourceAsStream("/array/testcase8.res.txt"));
         List<String> results = new ArrayList<String>();
         while (scanner.hasNext()) {
             results.add(scanner.nextLine());
