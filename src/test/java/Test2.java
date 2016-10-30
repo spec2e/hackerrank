@@ -1,10 +1,6 @@
 import org.junit.Test;
 import test.BaseTest;
 
-import java.util.ArrayList;
-import java.util.List;
-import java.util.StringTokenizer;
-
 public class Test2 extends BaseTest {
 
     @Test
@@ -18,7 +14,7 @@ public class Test2 extends BaseTest {
     public void test2() {
 
         String res = LookAndSay("2", 2);
-        assertEquals("12", res);
+        assertEquals("1112", res);
     }
 
     @Test
