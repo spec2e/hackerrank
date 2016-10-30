@@ -9,6 +9,11 @@ class Solution {
 
     Queue<Student> queue = new PriorityQueue<Student>();
 
+    public static void main(String[] args) {
+        Solution solution = new Solution();
+        solution.serve(new Scanner(System.in));
+    }
+
     public void serve(Scanner in) {
 
         int totalEvents = Integer.parseInt(in.nextLine());

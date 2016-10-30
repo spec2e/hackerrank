@@ -1,6 +1,6 @@
 package priority.queue;
 
-public class Student implements Comparable<Student> {
+class Student implements Comparable<Student> {
 
     private int token;
     private String fname;
