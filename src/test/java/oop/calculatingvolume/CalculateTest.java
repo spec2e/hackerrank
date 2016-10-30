@@ -123,7 +123,7 @@ public class CalculateTest extends BaseTest {
         assertEquals(97.748, cut.round(volume), 0);
     }
 
-    private Scanner getScannerFor(String file) {
+    public Scanner getScannerFor(String file) {
         InputStream in = CalculateTest.class.getResourceAsStream("/oop/calculatingvolume/" + file + ".txt");
         return new Scanner(in);
     }
