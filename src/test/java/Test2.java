@@ -33,7 +33,7 @@ public class Test2 extends BaseTest {
 
         String result = "";
 
-        for(int i = 0; i < n; i ++) {
+        for (int i = 0; i < n; i++) {
             input = lookAndSay(input);
             result = input;
         }
@@ -43,55 +43,30 @@ public class Test2 extends BaseTest {
 
     private static String lookAndSay(String start) {
         String result = "";
-
         String currentGroup = "";
-        boolean prevWasOne = false;
+        String current = null;
 
         for (int i = 0; i < start.length(); i++) {
-            String current = start.substring(i, i + 1);
-            if (current.equals("1")) {
-                if (prevWasOne) {
-                    currentGroup += current;
-                } else {
-                    if (currentGroup.length() > 0) {
-                        result += calculateResultOfTwos(currentGroup);
-                    }
-                    currentGroup = "";
-                    currentGroup += current;
-                    prevWasOne = true;
-                }
+            String digit = start.substring(i, i + 1);
+            if (current != null && !current.equals(digit)) {
+                result += flush(currentGroup);
+                currentGroup = "";
             }
-            if (current.equals("2")) {
-                if (!prevWasOne) {
-                    currentGroup += current;
-                } else {
-                    prevWasOne = false;
-                    if (currentGroup.length() > 0) {
-                        result += calculateResultOfOnes(currentGroup);
-                    }
-                    currentGroup = "";
-                    currentGroup += current;
-                }
-            }
+            currentGroup += digit;
+            current = digit;
         }
 
-        if(prevWasOne) {
-            result += calculateResultOfOnes(currentGroup);
-        } else {
-            result += calculateResultOfTwos(currentGroup);
+        if(currentGroup.length() > 0) {
+            result += flush(currentGroup);
         }
 
         return result;
     }
 
-    private static String calculateResultOfTwos(String currentGroupOfTwo) {
-        int lengthOfOnes = currentGroupOfTwo.length();
-        return lengthOfOnes + "2";
-    }
-
-    private static String calculateResultOfOnes(String currentGroupOfOne) {
-        int lengthOfOnes = currentGroupOfOne.length();
-        return lengthOfOnes + "1";
+    private static String flush(String currentGroup) {
+        int lengthOfOnes = currentGroup.length();
+        String firstDigit = currentGroup.substring(0, 1);
+        return lengthOfOnes + firstDigit;
     }
 
 }
