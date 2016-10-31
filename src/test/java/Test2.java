@@ -29,6 +29,12 @@ public class Test2 extends BaseTest {
         assertEquals("2221", res);
     }
 
+    @Test
+    public void test5() {
+        String res = LookAndSay("221111", 2);
+        assertEquals("221411", res);
+    }
+
     static String LookAndSay(String input, int n) {
 
         String result = "";
